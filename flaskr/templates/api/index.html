@@ -1,0 +1,43 @@
+{% extends 'vistaUnica.html' %}
+
+{% block header %}
+  <h1>{% block title %}Vehiculos {{tipo}}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+	<div style="position: relative;">
+    <svg id="elmSVG" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin" version="1.2" viewBox="0 0 1200 550" >
+  <defs>
+    <symbol id="markerIcon" viewBox="6 6 354 546" >
+      <path d="M182.9,551.7c0,0.1,0.2,0.3,0.2,0.3S358.3,283,358.3,194.6c0-130.1-88.8-186.7-175.4-186.9
+        C96.3,7.9,7.5,64.5,7.5,194.6c0,88.4,175.3,357.4,175.3,357.4S182.9,551.7,182.9,551.7z M122.2,187.2c0-33.6,27.2-60.8,60.8-60.8
+        c33.6,0,60.8,27.2,60.8,60.8S216.5,248,182.9,248C149.4,248,122.2,220.8,122.2,187.2z"/>
+        
+    </symbol>
+  </defs>
+  <path id="polygon" fill="brown" d="M344.4 78L646.2 112.8L827.4 187.8L813.6 261L720.6 424.8L644.4 375.6L387.6 364.8L462.6 261L520.8 187.8L486 172.8z" />
+	 {% for vehiculo in vehiculos %}
+		<use xlink:href="#markerIcon" x="{{ 500 + (vehiculo['lat']) }}"  y="{{ 200 + (vehiculo['lat']) }}" width="35" height="54"  class="hoverRED" fill="#0000ff" id="marcadorVehiculo{{ vehiculo['id'] }}" />
+	 {% endfor %}
+  
+</svg>
+    <div id="dotsContainer"></div>
+	</div>
+
+  {% for vehiculo in vehiculos %}
+    <article class="post">
+      <header>
+        
+          <div>
+          <h1>{{ vehiculo['placas'] }}</h1>
+          <div class="about">id {{ vehiculo['id'] }} on {{ vehiculo['lat'] }} , {{ vehiculo['lon'] }}</div>
+          </div>
+      </header>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
+{% block scriptSection %}
+{% endblock %}
