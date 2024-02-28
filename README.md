@@ -52,3 +52,13 @@ Jose -> bcd456
 
 Juan -> efg789
 
+
+/api/getAll  --> [GET] Devuelve todos los vehiculos
+
+/api/insert/<id>  --> [POST] Inserta un nuevo registro de vehículo para el dueño id. Pide [dueno, placas, lat, lon]
+
+/api/delete/<id>  --> [POST] Elimina el registro del vehículo id
+
+/api/update/<id>  --> [POST] Actualiza la información del vehículo id. Pide [placas, lat, lon]
+
+
