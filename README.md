@@ -42,7 +42,13 @@ flask --app flaskr run --debug
 ## Pruebas
 
 Los usuarios de prueba y sus contraseñas son:
+
+
 Ruben -> abc123
+
+
 Jose -> bcd456
+
+
 Juan -> efg789
 
